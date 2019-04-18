@@ -33,8 +33,8 @@ class BST {
            insert(root, value); //sets current = root
            }
       void insert(node*current, int value) {
-           if(root == NULL) { 
-                   root = new node(value);
+           if(current == NULL) { 
+                   current = new node(value);
            }
            else {
                    if(value < current -> data) {
