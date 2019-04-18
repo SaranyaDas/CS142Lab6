@@ -29,10 +29,10 @@ class BST {
            root = NULL;
       }
       //1. insert()
-      void insert(int value) {
-           ins(root, value); //sets current = root
+      void insert(int value) { //dummy function
+           insert(root, value); //sets current = root
            }
-      void ins(node*current, int value) {
+      void insert(node*current, int value) {
            if(root == NULL) { 
                    root = new node(value);
            }
@@ -42,7 +42,7 @@ class BST {
                                        current -> left = new node(value);
                             }
                             else {
-                                       ins(current -> left, value);
+                                       insert(current -> left, value);
                             }
                    }
                    else {
@@ -50,46 +50,62 @@ class BST {
                                        current -> right = new node(value);
                             }
                             else {
-                                       ins(current -> right, value);
+                                       insert(current -> right, value);
                             }
                    }
            }
       }
       //2. display()
-      void display() {
-           dis(root); //sets current = root
+      void display() { //dummy function
+           display(root); //sets current = root
            cout << endl;
       }
-      void dis(node*current) {
+      void display(node*current) {
            if(current == NULL) {
                       return;
            }
            //display left
-           dis(current -> left);
+           display(current -> left);
            //display current
            cout << current -> data << ", ";
            //display right
-           dis(current -> right);
+           display(current -> right);
       }
       //3. search()
-      node*search(int value) {
-           return src(root, value); //sets current = root
+      node*search(int value) { //dummy function
+           return search(root, value); //sets current = root
       }
-      node*src(node*current, int value) {
+      node*search(node*current, int value) {
            if(current == NULL || current -> data == value) {
                       return current;
            }
            else {
                       if(value < current -> data) {
-                               return src(current -> left, value); //go left
+                               return search(current -> left, value); //go left
                       }
                       else {
                                if(value > current -> data) {
-                                        return src(current -> right, value); //go right
+                                        return search(current -> right, value); //go right
                                }
                       }
            }
       }
+      //2D display
+      void print2D() { //dummy function
+           print2D(root, 0); //sets current = root 
+      }  
+      void print2D(node*current, int spaces) {  
+           if (current == NULL) {
+                       return;  
+           }
+           spaces += 5; 
+           print2D(current -> right, spaces); 
+           cout << endl;
+           for (int i = 5; i < spaces;i++)  
+           cout << " ";  
+           cout << current -> data;
+           print2D(current -> left, spaces);
+      }  
 };
 //main function
 int main() {
@@ -103,7 +119,9 @@ int main() {
     NMB48.insert(7);
     NMB48.insert(3);
     NMB48.display();
-    cout << NMB48.search(3) << endl;
     cout << NMB48.search(3) -> data << endl;
+    cout << NMB48.search(3) << endl;
+    NMB48.print2D();
+    cout << endl;
     return 0;
 }
