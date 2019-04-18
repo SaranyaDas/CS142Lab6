@@ -95,16 +95,17 @@ class BST {
            print2D(root, 0); //sets current = root 
       }  
       void print2D(node*current, int spaces) {  
-           if (current == NULL) {
+           if(current == NULL) {
                        return;  
            }
            spaces += 5; 
            print2D(current -> right, spaces); 
            cout << endl;
-           for (int i = 5; i < spaces;i++)  
-           cout << " ";  
-           cout << current -> data;
-           print2D(current -> left, spaces);
+           for(int i = 5; i < spaces; i++) {
+                     cout << " ";  
+                     cout << current -> data;
+                     print2D(current -> left, spaces);
+           }
       }  
 };
 //main function
