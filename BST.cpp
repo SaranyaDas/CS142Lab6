@@ -33,8 +33,8 @@ class BST {
            insert(root, value); //sets current = root
            }
       void insert(node*current, int value) {
-           if(current == NULL) { 
-                   current = new node(value);
+           if(root == NULL) { 
+                   root = new node(value);
            }
            else {
                    if(value < current -> data) {
@@ -102,10 +102,10 @@ class BST {
            print2D(current -> right, spaces); 
            cout << endl;
            for(int i = 5; i < spaces; i++) {
-                     cout << " ";  
-                     cout << current -> data;
-                     print2D(current -> left, spaces);
+                     cout << " ";
            }
+           cout << current -> data;
+           print2D(current -> left, spaces);
       }  
 };
 //main function
